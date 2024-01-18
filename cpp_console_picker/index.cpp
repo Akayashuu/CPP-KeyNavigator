@@ -13,9 +13,9 @@ int main()
 	kvs.push_back(K_V{ "Choix 2", "2" });
 	kvs.push_back(K_V{ "Choix 3", "3" });
 	kvs.push_back(K_V{ "Choix 4", "4" });
-	ConsolePicker picker = ConsolePicker(kvs);
-	std::thread threadRun(&ConsolePicker::run, &picker);
-	std::thread threadDebugger(&ConsolePicker::debugger, &picker);
+	KeyNavigator picker = KeyNavigator(kvs);
+	std::thread threadRun(&KeyNavigator::run, &picker);
+	std::thread threadDebugger(&KeyNavigator::debugger, &picker);
 
 	threadRun.join();
 	threadDebugger.join();

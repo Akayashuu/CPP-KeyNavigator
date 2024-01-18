@@ -3,18 +3,18 @@
 #include <iostream>
 #include <thread>
 
-ConsolePicker::ConsolePicker(std::vector<K_V>& choices, ConsolePickerOptions options): choices(choices), options(options) {}
-ConsolePicker::~ConsolePicker() {};
+KeyNavigator::KeyNavigator(std::vector<K_V>& choices, KeyNavigatorOptions options): choices(choices), options(options) {}
+KeyNavigator::~KeyNavigator() {};
 
-void ConsolePicker::set_choices(std::vector<K_V>& choices) {
+void KeyNavigator::set_choices(std::vector<K_V>& choices) {
     this->choices = choices;
 };
 
-void ConsolePicker::set_quit_is_enabled(bool quit_is_enabled) {
+void KeyNavigator::set_quit_is_enabled(bool quit_is_enabled) {
     this->options.quit_is_enabled = quit_is_enabled;
 };
 
-void ConsolePicker::run() {
+void KeyNavigator::run() {
     while (true) {
         if ((GetAsyncKeyState('Q') & 0x8001) && this->options.quit_is_enabled) {std::abort();break;};
         if (GetAsyncKeyState(VK_UP) & 0x8001) {
@@ -37,7 +37,7 @@ void ConsolePicker::run() {
 
 };
 
-void ConsolePicker::debugger() {
+void KeyNavigator::debugger() {
     std::cout << "Debugging..." << std::endl;
     std::cout << "Choices: " << std::endl;
     for (int i = 0; i < this->choices.size(); i++) {

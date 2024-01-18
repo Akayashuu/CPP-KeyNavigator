@@ -13,14 +13,14 @@ struct K_V {
 	Options Type of the picker.
 		1. quit_is_enabled is a boolean that allows the user to quit the picker by pressing the Q key.
 */
-struct ConsolePickerOptions {
+struct KeyNavigatorOptions {
 	/*
 		quit_is_enabled is a boolean that allows the user to quit the picker by pressing the Q key.
 	*/
 	bool quit_is_enabled;
 };
 
-class ConsolePicker
+class KeyNavigator
 {
 	public:
 		/*
@@ -36,16 +36,16 @@ class ConsolePicker
 			Options of the picker.
 			@see ConsolePickerOptions
 		*/
-		ConsolePickerOptions options;
+		KeyNavigatorOptions options;
 
 		/*
 			Constructor
 		*/
-		ConsolePicker(std::vector<K_V>& choices, ConsolePickerOptions options = { true });
+		KeyNavigator(std::vector<K_V>& choices, KeyNavigatorOptions options = { true });
 		/*
 			Destructor
 		*/
-		~ConsolePicker();
+		~KeyNavigator();
 		/*
 			Example:
 				std::vector<K_V> kvs = std::vector<K_V>();
@@ -53,7 +53,7 @@ class ConsolePicker
 					kvs.push_back(K_V{ "Choix 2", "2" });
 					kvs.push_back(K_V{ "Choix 3", "3" });
 					kvs.push_back(K_V{ "Choix 4", "4" });
-				ConsolePicker picker = ConsolePicker(kvs);
+				KeyNavigator picker = KeyNavigator(kvs);
 				picker.run();
 		*/
 		void run();

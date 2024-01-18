@@ -128,11 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="console_picker.cpp" />
+    <ClCompile Include="KeyNavigator.cpp" />
     <ClCompile Include="index.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="console_picker.h" />
+    <ClInclude Include="KeyNavigator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,12 +18,12 @@
     <ClCompile Include="index.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="console_picker.cpp">
+    <ClCompile Include="KeyNavigator.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="console_picker.h">
+    <ClInclude Include="KeyNavigator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
