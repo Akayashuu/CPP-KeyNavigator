@@ -23,7 +23,6 @@ void KeyNavigator::run() {
             else {
 				this->current_index++;
             }
-            std::cout << "Current index: " << this->current_index << std::endl;
         }
         if (GetAsyncKeyState(VK_DOWN) & 0x8001) {
             std::cout << "Down" << std::endl;
@@ -32,7 +31,13 @@ void KeyNavigator::run() {
                 this->current_index--;
             }
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        if (GetAsyncKeyState(VK_RETURN) & 0x8001) {
+			std::cout << "Enter" << std::endl;
+			std::cout << "Current index: " << this->current_index << std::endl;
+			std::cout << "Value: " << this->choices[this->current_index].value << std::endl;
+            break;
+		}
+        Sleep(100);
     }
 
 };
@@ -45,6 +50,6 @@ void KeyNavigator::debugger() {
     }
     while (true) {
         std::cout << "Current index: " << this->current_index << std::endl; 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        Sleep(100);
     }
 };
