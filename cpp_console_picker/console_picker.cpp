@@ -3,8 +3,6 @@
 #include <iostream>
 #include <thread>
 
-
-
 ConsolePicker::ConsolePicker(std::vector<K_V>& choices, ConsolePickerOptions options): choices(choices), options(options) {}
 ConsolePicker::~ConsolePicker() {};
 
@@ -16,21 +14,22 @@ void ConsolePicker::set_quit_is_enabled(bool quit_is_enabled) {
     this->options.quit_is_enabled = quit_is_enabled;
 };
 
-
-
 void ConsolePicker::run() {
     while (true) {
-        if ((GetAsyncKeyState('Q') & 0x8001) && this->options.quit_is_enabled) { break; };
+        if ((GetAsyncKeyState('Q') & 0x8001) && this->options.quit_is_enabled) {std::abort();break;};
         if (GetAsyncKeyState(VK_UP) & 0x8001) {
             std::cout << "Up" << std::endl;
-            if (this->current_index >= 0) {
-				this->current_index--;
-			}
+            if (this->current_index == this->choices.size()-1) {}
+            else {
+				this->current_index++;
+            }
+            std::cout << "Current index: " << this->current_index << std::endl;
         }
         if (GetAsyncKeyState(VK_DOWN) & 0x8001) {
             std::cout << "Down" << std::endl;
-            if (this->current_index < this->choices.size() - 1) {
-                this->current_index++;
+            if(this->current_index > this->choices.size() || this->current_index-1 < 0) {}
+            else {
+                this->current_index--;
             }
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
